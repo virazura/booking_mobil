@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include booking_mobil *.css
+recursive-include booking_mobil *.csv
+recursive-include booking_mobil *.html
+recursive-include booking_mobil *.ico
+recursive-include booking_mobil *.js
+recursive-include booking_mobil *.json
+recursive-include booking_mobil *.md
+recursive-include booking_mobil *.png
+recursive-include booking_mobil *.py
+recursive-include booking_mobil *.svg
+recursive-include booking_mobil *.txt
+recursive-exclude booking_mobil *.pyc
