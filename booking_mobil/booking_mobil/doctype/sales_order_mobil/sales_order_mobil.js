@@ -28,7 +28,6 @@ frappe.ui.form.on('Sales Order Mobil', {
 		frm.set_value('total_hari', diff_day);
 	},
 	id_mobil:function(frm, cdt, cdn){
-		
 		//assign the child table after select id_mobil
 		if(frm.doc.id_mobil){
 			frappe.call({
@@ -40,8 +39,9 @@ frappe.ui.form.on('Sales Order Mobil', {
 				callback: function(r){
 					frappe.model.add_child(cur_frm.doc, "Sales Mobil Line", "sales_mobil_line");
 					$.each(frm.doc.sales_mobil_line || [], function(i, v){
-						frappe.model.set_value(v.doctype, v.name, "nama_mobil", r.message.nama_mobil);
-						frappe.model.set_value(v.doctype, v.name, "tipe_mobil", r.message.tipe_mobil);
+						frappe.model.set_value(v.doctype, v.name, "kode_mobil", r.message.name);
+                        frappe.model.set_value(v.doctype, v.name, "nama_mobil", r.message.nama_mobil);
+                        frappe.model.set_value(v.doctype, v.name, "no_polisi", r.message.no_polisi);
 						frappe.model.set_value(v.doctype, v.name, "harga_mobil", r.message.harga_mobil);
 					})
 					frm.refresh_fields("sales_mobil_line");
