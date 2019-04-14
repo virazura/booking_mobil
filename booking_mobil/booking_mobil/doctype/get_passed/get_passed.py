@@ -8,3 +8,13 @@ from frappe.model.document import Document
 
 class GetPassed(Document):
 	pass
+
+	def validate(self):
+		self.change_status_delivery()
+
+	def change_status_delivery(self):
+		if(self.id_customer):
+			delivery = frappe.get_doc("Delivery Order", self.id_customer)
+			delivery.status_delivery = 'Delivered'
+			delivery.save()
+		
